@@ -5,28 +5,28 @@ import java.util.Queue;
 class BreathFirstSearch {
 
     Queue<Integer> q = new LinkedList<>();
-    ArrayList<ArrayList<Integer>> lst = new ArrayList<ArrayList<Integer>>();
+    ArrayList<ArrayList<Integer>> adjLst = new ArrayList<ArrayList<Integer>>();
     boolean visited[];
 
     BreathFirstSearch(int total_nodes) {
         visited = new boolean[total_nodes + 1];
         for (int i = 0; i <= total_nodes; i++) {
-            lst.add(new ArrayList<>());
+            adjLst.add(new ArrayList<>());
         }
     }
 
     // while getting input from other file
     void addPairInArrayList(int u, int v) {
-        lst.get(u).add(v);
-        lst.get(v).add(u);
+        adjLst.get(u).add(v);
+        adjLst.get(v).add(u);
     }
 
     void addElementsInArrayList(int arr[][]) {
         for (int i = 0; i < arr.length; i++) {
-            lst.get(arr[i][0]).add(arr[i][1]);
-            lst.get(arr[i][1]).add(arr[i][0]);
+            adjLst.get(arr[i][0]).add(arr[i][1]);
+            adjLst.get(arr[i][1]).add(arr[i][0]);
         }
-        System.err.println("ArrayList : " + lst);
+        System.err.println("ArrayList : " + adjLst);
     }
 
     void bfs(int first) {
@@ -38,7 +38,7 @@ class BreathFirstSearch {
 
             System.out.println(element + " ");
 
-            for (int neighbour : lst.get(element)) {
+            for (int neighbour : adjLst.get(element)) {
                 if (!visited[neighbour]) {
                     visited[neighbour] = true;
                     q.add(neighbour);
