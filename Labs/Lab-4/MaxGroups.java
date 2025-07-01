@@ -18,7 +18,7 @@ public class MaxGroups {
             for(int j=0;j<adjArr[0].length;j++){
                 if(adjArr[i][j] == 1){
                     adjList.get(i).add(j);
-                    adjList.get(j).add(i);
+                    adjList.get(j).add(i);  
                 }
             }
         }
