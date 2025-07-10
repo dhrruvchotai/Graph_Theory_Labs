@@ -19,8 +19,8 @@ public class MirrorTree {
     public static Node root;
 
     static class BinaryTree {
-        Queue<Node> q = new LinkedList<>();
         static int index = -1;
+        Queue<Node> q = new LinkedList<>();
 
         public Node buildTree(int nodes[]) {
             if (index < nodes.length - 1) {
